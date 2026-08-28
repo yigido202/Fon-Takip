@@ -5,6 +5,7 @@ on:
     # UTC saatleri (TR = UTC+3). Hafta ici:
     - cron: "0,30 7-14 * * 1-5"   # 10:00-17:30 TR arasi her 30 dk alarm kontrolu
     - cron: "45 15 * * 1-5"        # 18:45 TR gun sonu ozeti
+    - cron: "30 16 * * 1-5"        # 19:30 TR yedek ozet (ilki basarisizsa)
   workflow_dispatch:
     inputs:
       mod:
@@ -25,12 +26,12 @@ jobs:
           python-version: "3.11"
 
       - name: Kutuphaneleri kur
-        run: pip install requests pandas yfinance
+        run: pip install requests pandas yfinance pdfplumber
 
       - name: Modu belirle
         id: mod
         run: |
-          if [ "${{ github.event.schedule }}" = "45 15 * * 1-5" ]; then
+          if [ "${{ github.event.schedule }}" = "45 15 * * 1-5" ] || [ "${{ github.event.schedule }}" = "30 16 * * 1-5" ]; then
             echo "mod=ozet" >> $GITHUB_OUTPUT
           elif [ -n "${{ github.event.inputs.mod }}" ]; then
             echo "mod=${{ github.event.inputs.mod }}" >> $GITHUB_OUTPUT
