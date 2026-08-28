@@ -1,0 +1,7 @@
+# Bu dosyayi repoda .streamlit/config.toml yoluna koy
+# (GitHub'da: Add file -> Create new file -> isim: .streamlit/config.toml)
+[theme]
+primaryColor = "#1f4e79"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f4f7fb"
+textColor = "#1a2233"
