@@ -1,7 +1,0 @@
-streamlit
-pandas
-requests
-yfinance
-streamlit-autorefresh
-pdfplumber
-openpyxl
