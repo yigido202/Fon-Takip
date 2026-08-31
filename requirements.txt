@@ -1,0 +1,8 @@
+streamlit
+pandas
+requests
+yfinance
+streamlit-autorefresh
+pdfplumber
+openpyxl
+streamlit-js-eval
